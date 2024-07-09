@@ -1,0 +1,145 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #aac8e9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+/* Greeting section */
+.greeting {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+   
+}
+.greeting img{
+    width: 250px;
+    margin-top: -25px;
+    height: 250px;
+}
+
+
+
+/* Tasks section */
+.tasks {
+    margin-top: -20px; /* Adjust top margin for spacing */
+    text-align: center; /* Center align the tasks */
+    background-color: #021331;
+    border-radius: 10px;
+}
+.tasks h2{
+    padding-top: 20px;
+    color: white;
+    font-size: 1.8rem;
+}
+
+.task-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+    
+}
+
+.task {
+    display: inline-block;
+    background-color: #f9f9f9;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: calc(25% - 20px); /* Adjust width to fit four tasks per row */
+    margin-right: 20px; /* Adjust right margin for spacing between tasks */
+}
+
+.task a {
+    text-decoration: none;
+    color: #333;
+}
+
+.task:hover {
+    transform: translateY(-5px);
+    transition: transform 0.2s ease;
+}
+
+.task img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.task h3 {
+    font-size: 18px;
+}
+
+.task p {
+    color: #777;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+     background-color: #010610;/* Background color of the navigation bar */
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width:800px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Shadow for the nav bar */
+    z-index: 1000;
+    margin-top: 25px;
+    height: 30px;
+    max-width: 100%;
+}
+
+.menu a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: black; /* Text color */
+    margin: 0 10px; /* Space between menu items */
+    border-radius: 0 0 10px 10px;
+}
+
+.menu img {
+    width: 40px; /* Icon size */
+    height: 40px; /* Icon size */
+    filter: brightness(5) invert(1); /* Makes the icon white */
+    margin-bottom: 5px; /* Space between icon and text */
+    margin-top: 10px;
+}
+
+.menu a:hover img {
+    transform: scale(1.2); /* Slightly increase size on hover */
+    transition: transform 0.2s;
+}
+
+.menu a:hover {
+    color: #ffcc00; /* Change text color on hover */
+}
+
+.menubar {
+    margin: 0 5px; /* Space between menu items */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 600px) {
+    .task {
+        width: 100%; /* Full width for mobile */
+        margin-right: 0;
+    }
+
+}

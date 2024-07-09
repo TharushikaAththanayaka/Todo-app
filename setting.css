@@ -1,0 +1,98 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #aac8e9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.container a{
+    text-decoration: none;
+    color: black;
+    font-weight: 900;
+}
+.top {
+    background-image: url('./img/bc.jfif');
+    border-radius: 10px;
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 180px
+    
+    
+    
+}
+
+.top h1 {
+    color: white;
+    font-size: 3.5rem;
+    margin-top: 25px;
+    margin-left: 100px;
+  
+}
+
+.top img {
+    height: 150px; /* Adjust as needed */
+    width: 200px;
+    border-radius: 5px;
+    margin-right: 150px;
+}
+
+.content {
+    background-color: #062443;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.content table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+
+.content td {
+    background-color: #fdfbfb;
+    padding: 20px;
+    
+    text-align: center;
+    vertical-align: middle;
+}
+
+.content td img {
+    height: 50px; /* Adjust as needed */
+    width: 50px; /* Adjust as needed */
+    border-radius: 5px;
+}
+
+.content td h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+    text-align: left;
+}
+
+.content a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.content a:hover td {
+    background-color: #e0f7fa;
+    transition: background-color 0.3s ease;
+
+}

@@ -1,0 +1,34 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #aac8e9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.container a{
+    text-decoration: none;
+    color: black;
+    font-weight: 900;
+}
+
+#calendar {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #eeecec;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 25px;
+
+}

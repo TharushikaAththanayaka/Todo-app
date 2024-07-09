@@ -1,0 +1,76 @@
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="./home.css">
+</head>
+<body>
+    <div class="container">
+        
+        <header class="greeting">
+            <h1>Hello Buddy!</h1>
+            <img src="./img/child2.png" alt="Jenny's Face" class="face">
+        </header>
+        <br/>
+        <main class="tasks">
+            <h2>Today's Tasks</h2>
+            <div class="task-list">
+                <div class="task">
+                    <a href="work.html">
+                        <img src="./img/work.jfif" alt="Work Icon">
+                        <h3>Work</h3>
+                        <p id="work-task-count">0 Tasks</p>
+                    </a>
+                </div>
+                <div class="task">
+                    <a href="shopping.html">
+                        <img src="./img/shopping1.jfif" alt="Shopping Icon">
+                        <h3>Shopping</h3>
+                        <p id="shopping-task-count">0 Tasks</p>
+                    </a>
+                </div>
+                <div class="task">
+                    <a href="personal.html">
+                        <img src="./img/personal1.jfif" alt="Personal Icon">
+                        <h3>Personal</h3>
+                        <p id="personal-task-count">0 Tasks</p>
+                    </a>
+                </div>
+                <div class="task">
+                    <a href="health.html">
+                        <img src="./img/health.jfif" alt="Health Icon">
+                        <h3>Health</h3>
+                        <p id="health-task-count">0 Tasks</p>
+                    </a>
+                </div>
+            </div>
+        </main>
+        
+        <nav class="menu">
+            <a href="home.html">
+                <img src="./img/h1.jfif" alt="Home Icon">
+            </a>
+            <a href="calendar.html">
+                <img src="./img/calender.jfif" alt="Calendar Icon">
+            </a>
+            <a href="doc.html">
+                <img src="./img/doc.jfif" alt="Documents Icon">
+            </a>
+            <a href="setting.html">
+                <img src="./img/setting.jfif" alt="Settings Icon">
+            </a>
+        </nav>
+    </div>
+    <script>
+        document.getElementById('work-task-count').textContent = localStorage.getItem('workTaskCount') + ' Tasks' || '0 Tasks';
+        document.getElementById('shopping-task-count').textContent = localStorage.getItem('shoppingTaskCount') + ' Tasks' || '0 Tasks';
+        document.getElementById('personal-task-count').textContent = localStorage.getItem('personalTaskCount') + ' Tasks' || '0 Tasks';
+        document.getElementById('health-task-count').textContent = localStorage.getItem('healthTaskCount') + ' Tasks' || '0 Tasks';
+        // Repeat for other categories as needed
+    </script>
+</body>
+
+</html>

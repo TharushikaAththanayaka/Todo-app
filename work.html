@@ -1,0 +1,78 @@
+
+<html>
+    <head>
+        <link rel="stylesheet" href="./work.css">
+        <title>Work </title>
+
+    </head>
+    <body>
+        <div class="container">
+            <a href="home.html">
+                <h1><<</h1>
+            </a>
+            <div class="todo-list">
+                <h2> Work <img src="./img/work.jfif" alt=""></h2>
+                <div class="row">
+                    <input type="text" id="input-box" placeholder="Add your task">
+                    <button onclick="addTask()">Add</button>
+                </div>
+                <ul id="list-content">
+                    <!--<li class="checked"> Task 1</li>
+                    <li>Task 2</li> -->
+                </ul>
+            </div>
+        </div>
+        <script>
+            const inputBox = document.getElementById("input-box");
+            const listContent = document.getElementById("list-content");
+    
+            function addTask() {
+                if (inputBox.value === '') {
+                    alert("You must add something!");
+                } else {
+                    let li = document.createElement("li");
+                    li.innerHTML = inputBox.value;
+                    listContent.appendChild(li);
+                    let span = document.createElement("span");
+                    span.innerHTML = "\u00d7";
+                    li.appendChild(span);
+                    inputBox.value = ""; // Clear the input box
+                    saveData();
+                    updateTaskCount(); // Update the task count
+                }
+            }
+    
+            listContent.addEventListener("click", function(e) {
+                if (e.target.tagName === "LI") {
+                    e.target.classList.toggle("Checked");
+                    saveData();
+                } else if (e.target.tagName === "SPAN") {
+                    e.target.parentElement.remove();
+                    saveData();
+                    updateTaskCount(); // Update the task count
+                }
+            }, false);
+    
+            function saveData() {
+                localStorage.setItem("workData", listContent.innerHTML);
+            }
+    
+            function showTask() {
+                listContent.innerHTML = localStorage.getItem("workData");
+                updateTaskCount(); // Update the task count when tasks are loaded
+            }
+    
+            function updateTaskCount() {
+                const taskCount = listContent.getElementsByTagName('li').length;
+                localStorage.setItem("workTaskCount", taskCount);
+                // Assuming there's an element with ID 'work-task-count' on the home page to display the task count
+                const taskCountElement = document.getElementById('work-task-count');
+                if (taskCountElement) {
+                    taskCountElement.textContent = taskCount + ' Tasks';
+                }
+            }
+    
+            showTask();
+        </script>
+    </body>
+    </html>

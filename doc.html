@@ -1,0 +1,103 @@
+
+<html>
+    <head>
+        <title>Document</title>
+        <link rel="stylesheet" href="./doc.css">
+    </head>
+    <body>
+        <div class="container">
+            <a href="home.html">
+            <h1> << </h1>
+        </a>
+           
+            <h1> Set Reminder</h1>
+            <form id="reminderForm">
+                <h3>Add Task</h3>
+                <input type="text" id="task">
+                <br/>
+                <h3>Set Date</h3>
+                <input type="date" id="date"><br/>
+                <h3>Set Time</h3>
+                <input type="time" id="time">
+                <br/><br/>
+        <input type="submit" onclick="setRemainder()" value="Shedule Reminder">
+            </form>
+            <br/>
+            <table border="1 solid black">
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+           
+        </div>
+        <audio src="simple-notification-152054.mp3" id="sound" ></audio>
+        <script>
+           document.getElementById('reminderForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    setReminder();
+});
+
+function setReminder() {
+    const task = document.getElementById('task').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+
+    if (task && date && time) {
+        const tableBody = document.getElementById('tableBody');
+        const newRow = tableBody.insertRow();
+
+        const taskCell = newRow.insertCell(0);
+        const dateCell = newRow.insertCell(1);
+        const timeCell = newRow.insertCell(2);
+        const actionCell = newRow.insertCell(3);
+
+        taskCell.textContent = task;
+        dateCell.textContent = date;
+        timeCell.textContent = time;
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.className = 'blue-button'; // Add class for styling
+        deleteButton.onclick = function() {
+            tableBody.deleteRow(newRow.rowIndex - 1);
+        };
+        actionCell.appendChild(deleteButton);
+
+        const reminderTime = new Date(`${date}T${time}`);
+        const currentTime = new Date();
+
+        if (reminderTime > currentTime) {
+            setTimeout(() => {
+                document.getElementById('sound').play();
+                displayNotification(task);
+            }, reminderTime - currentTime);
+        } else {
+            alert('The reminder time must be in the future.');
+        }
+
+        document.getElementById('reminderForm').reset();
+    } else {
+        alert('Please fill out all fields.');
+    }
+}
+
+function displayNotification(task) {
+    if (Notification.permission === 'granted') {
+        new Notification('Reminder', { body: task });
+    } else if (Notification.permission !== 'denied') {
+        Notification.requestPermission().then(permission => {
+            if (permission === 'granted') {
+                new Notification('Reminder', { body: task });
+            }
+        });
+    }
+}
+        </script>
+    </body>
+    </html>
